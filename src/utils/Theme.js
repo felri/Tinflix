@@ -3,7 +3,7 @@ const colors = {
   secondary: '#414141',
   navigation: '#313131',
   red: '#ca3e47',
-  color: 'white',
+  textColor: 'white',
 };
 
 export default {

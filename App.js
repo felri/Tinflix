@@ -2,6 +2,8 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {AsyncStorage, StatusBar, SafeAreaView} from 'react-native';
 import Theme from './src/utils/Theme';
+import SplashScreen from 'react-native-splash-screen';
+
 //REDUX IMPORTS
 import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
@@ -18,12 +20,13 @@ const Tab = createBottomTabNavigator();
 
 //SCREENS
 import Home from './src/screens/Home';
+import Favorites from './src/screens/Favorites';
+import Settings from './src/screens/Settings';
 
 //REDUX STUFF
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['likes, dislikes'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -33,10 +36,17 @@ const store = createStore(persistedReducer, applyMiddleware(thunk));
 let persistor = persistStore(store);
 
 const App: () => React$Node = () => {
+  React.useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <StatusBar barStyle="dark-content" />
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor={Theme.colors.secondary}
+        />
         <NavigationContainer initialRouteName="Home">
           <Tab.Navigator
             tabBarOptions={{
@@ -44,6 +54,9 @@ const App: () => React$Node = () => {
               activeTintColor: Theme.colors.red,
               activeBackgroundColor: Theme.colors.navigation,
               inactiveBackgroundColor: Theme.colors.navigation,
+              style: {
+                borderTopWidth: 0,
+              },
             }}>
             <Tab.Screen
               options={{
@@ -64,7 +77,7 @@ const App: () => React$Node = () => {
                 ),
               }}
               name="Likes"
-              component={Home}
+              component={Favorites}
             />
             <Tab.Screen
               options={{
@@ -74,7 +87,7 @@ const App: () => React$Node = () => {
                 ),
               }}
               name="Settings"
-              component={Home}
+              component={Settings}
             />
           </Tab.Navigator>
         </NavigationContainer>
