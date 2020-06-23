@@ -862,6 +862,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
+"@ptomasroos/react-native-multi-slider@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@ptomasroos/react-native-multi-slider/-/react-native-multi-slider-2.2.2.tgz#35a97fb8c355627c6a2ded010b360ac5728b44ad"
+  integrity sha512-HWyCnRD3Z3SbHK2FLWYmBBqd1B4iXipeKv1+AK0FoY/CElEDTEixHE8hN60TsqxalPrznn798LE2Q4tHuCiyaA==
+
 "@react-native-community/cli-debugger-ui@^4.9.0":
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-4.9.0.tgz#4177764ba69243c97aa26829d59d9501acb2bd71"
@@ -990,6 +995,11 @@
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.10.tgz#5dda643e19e587793bc2034dd9bf7398ad43d401"
   integrity sha512-rk4sWFsmtOw8oyx8SD3KSvawwaK7gRBSEIy2TAwURyGt+3TizssXP1r8nx3zY+R7v2vYYHXZ+k2/GULAT/bcaQ==
+
+"@react-native-community/picker@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/picker/-/picker-1.6.1.tgz#f893bf4982e549c954696d08a47e1d8e72762310"
+  integrity sha512-JuCOtim1tZhB3KoJhbuPj3pFweUnj4XgukktJk0MyUOB8wA3uCEHW+xsGYu8ZDYiyR0M6qXctz7Fz2qYFuTUSQ==
 
 "@react-navigation/bottom-tabs@^5.5.0":
   version "5.5.0"
@@ -1425,6 +1435,20 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
   integrity sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
+
+assign-deep@^0.4.5:
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/assign-deep/-/assign-deep-0.4.8.tgz#92089f55f7b55872b1828d9c51f860427f08bae6"
+  integrity sha512-uxqXJCnNZDEjPnsaLKVzmh/ST5+Pqoz0wi06HDfHKx1ASNpSbbvz2qW2Gl8ZyHwr5jnm11X2S5eMQaP1lMZmCg==
+  dependencies:
+    assign-symbols "^0.1.1"
+    is-primitive "^2.0.0"
+    kind-of "^5.0.2"
+
+assign-symbols@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-0.1.1.tgz#cb025944ef4ec8a3693f086e9e112c74e3a0fed9"
+  integrity sha1-ywJZRO9OyKNpPwhunhEsdOOg/tk=
 
 assign-symbols@^1.0.0:
   version "1.0.0"
@@ -2339,6 +2363,11 @@ escape-html@~1.0.3:
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
 
+escape-string-regexp@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
+  integrity sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==
+
 escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
@@ -2562,6 +2591,11 @@ eventemitter3@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-3.1.2.tgz#2d3d48f9c346698fce83a85d7d664e98535df6e7"
   integrity sha512-tvtQIeLVHjDkJYnzf2dgVMxfuSGJeM/7UCG17TT4EumTfNtF+0nebF/4zWOIkCreAbtNqhGEboB6BWrwqNaw4Q==
+
+events@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/events/-/events-3.1.0.tgz#84279af1b34cb75aa88bf5ff291f6d0bd9b31a59"
+  integrity sha512-Rv+u8MLHNOdMjTAFeT3nCjHn2aGlx435FP/sDHNaRhDEMwyI/aB22Kj2qIN8R0cw3z28psEQLYwxVKLsKrMgWg==
 
 exec-sh@^0.3.2:
   version "0.3.4"
@@ -3229,7 +3263,7 @@ inquirer@^7.0.0:
     strip-ansi "^6.0.0"
     through "^2.3.6"
 
-invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -3383,6 +3417,11 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   integrity sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==
   dependencies:
     isobject "^3.0.1"
+
+is-primitive@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/is-primitive/-/is-primitive-2.0.0.tgz#207bab91638499c07b2adf240a41a87210034575"
+  integrity sha1-IHurkWOEmcB7Kt8kCkGochADRXU=
 
 is-regex@^1.0.5:
   version "1.0.5"
@@ -4032,7 +4071,7 @@ kind-of@^4.0.0:
   dependencies:
     is-buffer "^1.1.5"
 
-kind-of@^5.0.0:
+kind-of@^5.0.0, kind-of@^5.0.2:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-5.1.0.tgz#729c91e2d857b7a419a1f9aa65685c4c33f5845d"
   integrity sha512-NGEErnH6F2vUuXDh+OlbcKW7/wOcfdRHaZ7VWtqCztfHri/++YKmP51OdWeGPuqCOba6kk2OTe5d02VmTB80Pw==
@@ -5148,6 +5187,13 @@ react-is@^16.12.0, react-is@^16.13.0, react-is@^16.7.0, react-is@^16.8.1, react-
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-native-animatable@1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-animatable/-/react-native-animatable-1.3.3.tgz#a13a4af8258e3bb14d0a9d839917e9bb9274ec8a"
+  integrity sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w==
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-deck-swiper@1.5.25:
   version "1.5.25"
   resolved "https://registry.yarnpkg.com/react-native-deck-swiper/-/react-native-deck-swiper-1.5.25.tgz#1188339cc33bb87f629cb963e8ef5f6a9a9305d7"
@@ -5178,15 +5224,14 @@ react-native-material-buttons@^0.5.0:
     prop-types "^15.5.9"
     react-native-material-ripple "^0.7.0"
 
-react-native-material-dropdown@^0.11.1:
+"react-native-material-dropdown@https://github.com/noway/react-native-material-dropdown":
   version "0.11.1"
-  resolved "https://registry.yarnpkg.com/react-native-material-dropdown/-/react-native-material-dropdown-0.11.1.tgz#c0fe434a8e617941ef910ba44d2f07c8f37584fe"
-  integrity sha1-wP5DSo5heUHvkQukTS8HyPN1hP4=
+  resolved "https://github.com/noway/react-native-material-dropdown#376cd8888d8ee08a9e31f792c1eccbfa864c51cf"
   dependencies:
     prop-types "^15.5.9"
     react-native-material-buttons "^0.5.0"
     react-native-material-ripple "^0.8.0"
-    react-native-material-textfield "^0.12.0"
+    react-native-material-textfield "git+https://github.com/noway/react-native-material-textfield.git#v0_12_0_with_0_62_fixes"
 
 react-native-material-ripple@^0.7.0:
   version "0.7.5"
@@ -5202,12 +5247,19 @@ react-native-material-ripple@^0.8.0:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-material-textfield@^0.12.0:
+"react-native-material-textfield@git+https://github.com/noway/react-native-material-textfield.git#v0_12_0_with_0_62_fixes":
   version "0.12.0"
-  resolved "https://registry.yarnpkg.com/react-native-material-textfield/-/react-native-material-textfield-0.12.0.tgz#3fba19d76ab89f67052c81e082152fc243d82a3f"
-  integrity sha1-P7oZ12q4n2cFLIHgghUvwkPYKj8=
+  resolved "git+https://github.com/noway/react-native-material-textfield.git#ab85973770e62202d7f5f83afb1c2f57e91318ca"
   dependencies:
     prop-types "^15.5.9"
+
+react-native-modal@^11.5.6:
+  version "11.5.6"
+  resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-11.5.6.tgz#bb25a78c35a5e24f45de060e5f64284397d38a87"
+  integrity sha512-APGNfbvgC4hXbJqcSADu79GLoMKIHUmgR3fDQ7rCGZNBypkStSP8imZ4PKK/OzIZZfjGU9aP49jhMgGbhY9KHA==
+  dependencies:
+    prop-types "^15.6.2"
+    react-native-animatable "1.3.3"
 
 react-native-raw-bottom-sheet@^2.2.0:
   version "2.2.0"
@@ -5257,6 +5309,28 @@ react-native-svg@^12.1.0:
   dependencies:
     css-select "^2.1.0"
     css-tree "^1.0.0-alpha.39"
+
+react-native-swiper@^1.6.0-nightly.5:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-swiper/-/react-native-swiper-1.6.0.tgz#59fdbdf95addee49630312f27077622c27776819"
+  integrity sha512-OnkTTZi+9uZUgy0uz1I9oYDhCU3z36lZn+LFsk9FXPRelxb/KeABzvPs3r3SrHWy1aA67KGtSFj0xNK2QD0NJQ==
+  dependencies:
+    prop-types "^15.5.10"
+
+react-native-webview@10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-10.1.1.tgz#11c58ae7b197f03d2101685542baf0983ffc6b81"
+  integrity sha512-ZosyD5OVJzggGtisMSpPk8BNUPgSdwJm9JVB6f8gAzJEJCSsVO0eXTYHoLl8zMVXWattkP0UGfxXYruZXE7Wjg==
+  dependencies:
+    escape-string-regexp "2.0.0"
+    invariant "2.2.4"
+
+react-native-youtube-iframe@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/react-native-youtube-iframe/-/react-native-youtube-iframe-1.2.4.tgz#80c6f99784f3a13b1c9deb7a93e91b84fdd66ebd"
+  integrity sha512-VP2pO+mMrfOqNKwcRExfl9/BOPxnu9UWQt8pUWW4FNAFeSPld9mUVFmdqoTGtbbe2mAf2dwPY+gKSHbviUWPrg==
+  dependencies:
+    events "^3.0.0"
 
 react-native@0.62.2:
   version "0.62.2"
@@ -5592,6 +5666,15 @@ rimraf@~2.2.6:
   version "2.2.8"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
+
+rn-falcon-app-intro@^1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/rn-falcon-app-intro/-/rn-falcon-app-intro-1.2.9.tgz#d98e96d0070f9e99a0649c091b98f4f2c4ddeb63"
+  integrity sha512-m6vBzj6z9J6kYmoddiWIjmGpvULmdXavq9F9lE4kVhPQKYK7ciTkrepevyKapH8MAowGLjz/u3nJIm2smGCqvA==
+  dependencies:
+    assign-deep "^0.4.5"
+    prop-types "^15.5.8"
+    react-native-swiper "^1.6.0-nightly.5"
 
 rsvp@^4.8.4:
   version "4.8.5"

@@ -7,6 +7,7 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import Theme from 'src/utils/Theme';
 import Card from 'src/components/Card';
 import Details from 'src/components/Details';
+import ModalTrailer from 'src/components/ModalTrailer';
 
 function runTiming(clock, value, dest) {
   const state = {
@@ -98,6 +99,11 @@ export default class Swipe extends React.PureComponent {
     this.init();
   }
 
+  state = {
+    modal: false,
+    trailerId: '',
+  };
+
   init = () => {
     const clockX = new Clock();
     const clockY = new Clock();
@@ -165,6 +171,13 @@ export default class Swipe extends React.PureComponent {
     this.RBSheet.open();
   };
 
+  onTrailerClick = ({trailerId}) => {
+    this.setState({
+      modal: !this.state.modal,
+      trailerId,
+    });
+  };
+
   render() {
     const {onGestureEvent, translateX, translateY} = this;
     const {
@@ -207,6 +220,7 @@ export default class Swipe extends React.PureComponent {
               {first && (
                 <Card
                   card={first}
+                  onTrailerClick={this.onTrailerClick}
                   {...{likeOpacity, nopeOpacity}}
                   onInfoClick={this.onInfoClick}
                 />
@@ -233,6 +247,11 @@ export default class Swipe extends React.PureComponent {
             alertShowUnavailable={this.props.alertShowUnavailable}
           />
         </RBSheet>
+        <ModalTrailer
+          isVisible={this.state.modal}
+          onClose={this.onTrailerClick}
+          trailerId={this.state.trailerId}
+        />
       </SafeAreaView>
     );
   }

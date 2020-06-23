@@ -1,36 +1,43 @@
 import React from 'react';
-import {Alert} from 'react-native';
-import {useDispatch} from 'react-redux';
+import {Alert, View, Text} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
 import actions from 'src/redux/likes/types';
 import Swipe from 'src/components/Swipe';
 import Loading from 'src/components/Loading';
 import Error from 'src/components/Error';
 import Types from 'src/components/Types';
 import Filter from 'src/components/Filter';
+import Intro from 'src/components/Intro';
 
 import {Container} from 'src/utils/Container';
 
 import useApi from 'src/api/useApi';
 
+const filtersDefaultState = {
+  genre: 'All',
+  language: 'All',
+  yearFrom: 1921,
+  yearTo: 2020,
+};
+
 export default props => {
+  const year = new Date().getFullYear() + 1;
   const [loading, setLoading] = React.useState(true);
   const [cards, setCards] = React.useState([]);
   const [newCards, setNewCards] = React.useState([]);
   const [error, setError] = React.useState(false);
   const [typeOfShow, setTypeOfShow] = React.useState('all');
-  const [filter, setFilter] = React.useState({
-    genre: '',
-    yearFrom: '',
-    yearTo: '',
-  });
+  const [filters, setFilters] = React.useState(filtersDefaultState);
+
+  const firstTime = useSelector(state => state.likes.firstTime);
 
   const dispatch = useDispatch();
 
-  async function fetchShows({type}) {
-    const t = handleType({type});
+  async function fetchShows({type, filters, dontUpdateType = false}) {
+    const t = dontUpdateType ? type : handleType({type});
     setLoading(true);
-    const data = await useApi.fetchShows({type: t});
-    if (data) {
+    const data = await useApi.fetchShows({type: t, filters});
+    if (data && data.length > 0) {
       setCards(data);
       setError(false);
       setLoading(false);
@@ -42,7 +49,9 @@ export default props => {
 
   function handleError() {
     setLoading(true);
-    fetchShows();
+    setFilters(filtersDefaultState);
+    setTypeOfShow('all');
+    fetchShows({type: 'all', filters: filtersDefaultState});
   }
 
   function handleLike({lastSwipeCard}) {
@@ -62,11 +71,10 @@ export default props => {
       lastSwipeCard = data.shift();
       setCards(data);
     }
-
     //if last 3 cards, get new cards from api
-    if (data.length === 3) {
-      const f = await useApi.fetchShows({type: typeOfShow});
-      if (f) {
+    if (data.length === 4) {
+      const f = await useApi.fetchShows({type: typeOfShow, filters});
+      if (f && f.length > 0) {
         setNewCards(f);
       } else {
         setError(true);
@@ -133,9 +141,37 @@ export default props => {
   }
 
   React.useEffect(() => {
-    fetchShows({type: 'all'});
+    fetchShows({type: 'all', filters});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleChangeFilter = ({item, name}) => {
+    const f = {...filters};
+    f[name.toLowerCase()] = item;
+    setFilters(f);
+  };
+
+  const onYearChange = values => {
+    const f = {...filters};
+    f.yearFrom = values[0];
+    f.yearTo = values[1];
+    setFilters(f);
+  };
+
+  const handleCancelFilters = () => {
+    setFilters(filtersDefaultState);
+    fetchShows({type: typeOfShow, filters: filtersDefaultState});
+  };
+
+  const handleFilter = () => {
+    fetchShows({type: typeOfShow, filters, dontUpdateType: true});
+  };
+
+  if (firstTime) {
+    return (
+      <Intro handlePress={() => dispatch({type: actions.SET_FIRST_TIME})} />
+    );
+  }
 
   if (loading) {
     return (
@@ -155,8 +191,23 @@ export default props => {
 
   return (
     <Container>
-      <Types handleTypeChange={fetchShows} type={typeOfShow} />
-      {/* <Filter /> */}
+      <Types
+        handleTypeChange={fetchShows}
+        type={typeOfShow}
+        filters={filters}
+      />
+      <Filter
+        active={filters !== filtersDefaultState}
+        handleCancel={handleCancelFilters}
+        handleFilter={handleFilter}
+        handleChangeFilter={handleChangeFilter}
+        genre={filters.genre}
+        language={filters.language}
+        from={filters.yearFrom}
+        to={filters.yearTo}
+        onYearChange={onYearChange}
+        max={year}
+      />
       <Swipe
         cards={cards}
         handleSwipe={handleSwipe}

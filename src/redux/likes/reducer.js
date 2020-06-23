@@ -1,6 +1,6 @@
 import actions from 'src/redux/likes/types';
 
-export default (state = {data: [], error: false}, action) => {
+export default (state = {data: [], error: false, firstTime: true}, action) => {
   const newState = {...state};
   switch (action.type) {
     case actions.SET_LIKE:
@@ -17,6 +17,9 @@ export default (state = {data: [], error: false}, action) => {
     case actions.CLEAN_LIKES:
       newState.data = [];
       newState.error = false;
+      return newState;
+    case actions.SET_FIRST_TIME:
+      newState.firstTime = false;
       return newState;
     default:
       return state;

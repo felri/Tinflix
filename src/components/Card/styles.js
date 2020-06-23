@@ -108,4 +108,16 @@ export default StyleSheet.create({
     color: Theme.colors.textColor,
     fontSize: RFValue(15),
   },
+  containerTrailer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    padding: 5,
+    borderRadius: 5,
+  },
+  textTrailer: {
+    marginRight: 5,
+    fontSize: RFValue(15),
+    color: Theme.colors.textColor,
+  },
 });

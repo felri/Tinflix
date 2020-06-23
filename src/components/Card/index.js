@@ -3,7 +3,7 @@ import {Image, View, TouchableOpacity} from 'react-native';
 import Animated from 'react-native-reanimated';
 import Theme from 'src/utils/Theme';
 import {handleNetflixPress, handleImdbPress} from 'src/utils/helpers';
-import {InfoSvg, WatchSvg} from 'src/utils/svgIcons';
+import {InfoSvg, WatchSvg, HomeSvg} from 'src/utils/svgIcons';
 import imdbPng from 'src/assets/imgs/imdb.png';
 import {Text} from 'src/utils/Text';
 import styles from './styles';
@@ -19,7 +19,7 @@ const ImdbRating = ({card}) =>
   ) : null;
 
 export default React.memo(
-  ({card, likeOpacity = 0, nopeOpacity = 0, onInfoClick}) => (
+  ({card, likeOpacity = 0, nopeOpacity = 0, onInfoClick, onTrailerClick}) => (
     <View style={styles.container}>
       <View style={styles.header}>
         <Animated.View style={[styles.like, {opacity: likeOpacity}]}>
@@ -61,6 +61,14 @@ export default React.memo(
           <TouchableOpacity onPress={onInfoClick}>
             <InfoSvg width={30} height={30} fill={Theme.colors.textColor} />
           </TouchableOpacity>
+          {!!card.trailer && card.trailer.length > 0 && (
+            <TouchableOpacity
+              onPress={() => onTrailerClick({trailerId: card.trailer})}
+              style={styles.containerTrailer}>
+              <Text style={styles.textTrailer}>Trailer</Text>
+              <HomeSvg width={20} height={20} fill={Theme.colors.textColor} />
+            </TouchableOpacity>
+          )}
           <TouchableOpacity
             onPress={() => handleNetflixPress({id: card.netflixid})}>
             <WatchSvg width={50} height={50} fill={Theme.colors.red} />
