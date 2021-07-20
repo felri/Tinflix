@@ -17,7 +17,7 @@
     "@react-navigation/native": "^5.4.3",
     "add": "^2.0.6",
     "react": "16.11.0",
-    "react-native": "0.62.2",
+    "react-native": "0.62.3",
     "react-native-deck-swiper": "1.5.25",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-material-dropdown": "https://github.com/noway/react-native-material-dropdown",
